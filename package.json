@@ -1,0 +1,31 @@
+{
+  "name": "swagger-grow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js",
+    "start:dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevKhris/swagger-grow.git"
+  },
+  "keywords": [
+    "swagger",
+    "rest-api"
+  ],
+  "author": "Khris <contact@devkhris.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevKhris/swagger-grow/issues"
+  },
+  "homepage": "https://github.com/DevKhris/swagger-grow#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.5.0"
+  }
+}

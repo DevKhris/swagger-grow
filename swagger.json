@@ -1,0 +1,538 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Pokemon API with Swagger",
+        "description": "Pokemon RESTful API documentation",
+        "version": "0.1",
+        "license": {
+            "name": "MIT"
+        },
+        "contact": {
+            "email": "contact@devkhris.com",
+            "name": "Khris H. (DevKhris)",
+            "url": "https://devkhris.com"
+        },
+        "termsOfService": "https://devkhris.com/tos"
+    },
+    "tags": [
+        {
+            "name": "Pokemon",
+            "description": "REST API for managing Pokedex Resources"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Returns greetings string",
+                "responses": {
+                    "200": {
+                        "description": "Return greetings to user",
+                        "content": {
+                            "*/*": {
+                                "example": "Welcome to Pokemon API with Swagger"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pokemons": {
+            "get": {
+                "summary": "Return lists of all pokemons",
+                "responses": {
+                    "200": {
+                        "description": "Return the list of all pokemons as a JSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {},
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": {
+                                                    "type": "string"
+                                                },
+                                                "japanese": {
+                                                    "type": "string"
+                                                },
+                                                "chinese": {
+                                                    "type": "string"
+                                                },
+                                                "french": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "array"
+                                        },
+                                        "base": {
+                                            "type": "object",
+                                            "properties": {
+                                                "HP": {
+                                                    "type": "number"
+                                                },
+                                                "Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Speed": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Pokemon"
+                ]
+            },
+            "post": {
+                "summary": "Create a new pokemon resource",
+                "requestBody": {
+                    "required": true,
+                    "description": "Data to send",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {},
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "name": {
+                                        "type": "object",
+                                        "properties": {
+                                            "english": {
+                                                "type": "string"
+                                            },
+                                            "japanese": {
+                                                "type": "string"
+                                            },
+                                            "chinese": {
+                                                "type": "string"
+                                            },
+                                            "french": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "array"
+                                    },
+                                    "base": {
+                                        "type": "object",
+                                        "properties": {
+                                            "HP": {
+                                                "type": "number"
+                                            },
+                                            "Attack": {
+                                                "type": "number"
+                                            },
+                                            "Defense": {
+                                                "type": "number"
+                                            },
+                                            "Sp. Attack": {
+                                                "type": "number"
+                                            },
+                                            "Sp. Defense": {
+                                                "type": "number"
+                                            },
+                                            "Speed": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Return created pokemon",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {},
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": {
+                                                    "type": "string"
+                                                },
+                                                "japanese": {
+                                                    "type": "string"
+                                                },
+                                                "chinese": {
+                                                    "type": "string"
+                                                },
+                                                "french": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "array"
+                                        },
+                                        "base": {
+                                            "type": "object",
+                                            "properties": {
+                                                "HP": {
+                                                    "type": "number"
+                                                },
+                                                "Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Speed": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Pokemon"
+                ]
+            }
+        },
+        "/pokemons/{pokemonId}": {
+            "get": {
+                "summary": "Return pokemon resource by Id",
+                "parameters": [
+                    {
+                        "name": "pokemonId",
+                        "required": true,
+                        "in": "path",
+                        "description": "Pokemon Id from pokedex",
+                        "schema": {
+                            "type": "number",
+                            "format": "Int64",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return pokemon resource by his Id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {},
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": {
+                                                    "type": "string"
+                                                },
+                                                "japanese": {
+                                                    "type": "string"
+                                                },
+                                                "chinese": {
+                                                    "type": "string"
+                                                },
+                                                "french": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "array"
+                                        },
+                                        "base": {
+                                            "type": "object",
+                                            "properties": {
+                                                "HP": {
+                                                    "type": "number"
+                                                },
+                                                "Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Speed": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Pokemon"
+                ]
+            },
+            "put": {
+                "summary": "Update a pokemon resource",
+                "requestBody": {
+                    "required": true,
+                    "description": "Data to send for update",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {},
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "name": {
+                                        "type": "object",
+                                        "properties": {
+                                            "english": {
+                                                "type": "string"
+                                            },
+                                            "japanese": {
+                                                "type": "string"
+                                            },
+                                            "chinese": {
+                                                "type": "string"
+                                            },
+                                            "french": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "array"
+                                    },
+                                    "base": {
+                                        "type": "object",
+                                        "properties": {
+                                            "HP": {
+                                                "type": "number"
+                                            },
+                                            "Attack": {
+                                                "type": "number"
+                                            },
+                                            "Defense": {
+                                                "type": "number"
+                                            },
+                                            "Sp. Attack": {
+                                                "type": "number"
+                                            },
+                                            "Sp. Defense": {
+                                                "type": "number"
+                                            },
+                                            "Speed": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return update pokemon resource by his Id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {},
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": {
+                                                    "type": "string"
+                                                },
+                                                "japanese": {
+                                                    "type": "string"
+                                                },
+                                                "chinese": {
+                                                    "type": "string"
+                                                },
+                                                "french": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "array"
+                                        },
+                                        "base": {
+                                            "type": "object",
+                                            "properties": {
+                                                "HP": {
+                                                    "type": "number"
+                                                },
+                                                "Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Speed": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "pokemonId",
+                        "required": true,
+                        "in": "path",
+                        "description": "Pokemon Id from pokedex",
+                        "schema": {
+                            "type": "number",
+                            "format": "Int64",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "tags": [
+                    "Pokemon"
+                ]
+            },
+            "delete": {
+                "summary": "Delete a pokemon resource",
+                "responses": {
+                    "200": {
+                        "description": "Return the list of all pokemons as a JSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {},
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": {
+                                                    "type": "string"
+                                                },
+                                                "japanese": {
+                                                    "type": "string"
+                                                },
+                                                "chinese": {
+                                                    "type": "string"
+                                                },
+                                                "french": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "array"
+                                        },
+                                        "base": {
+                                            "type": "object",
+                                            "properties": {
+                                                "HP": {
+                                                    "type": "number"
+                                                },
+                                                "Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Attack": {
+                                                    "type": "number"
+                                                },
+                                                "Sp. Defense": {
+                                                    "type": "number"
+                                                },
+                                                "Speed": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "pokemonId",
+                        "required": true,
+                        "in": "path",
+                        "description": "Pokemon Id from pokedex",
+                        "schema": {
+                            "type": "number",
+                            "format": "Int64",
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "tags": [
+                    "Pokemon"
+                ]
+            }
+        }
+    }
+}
